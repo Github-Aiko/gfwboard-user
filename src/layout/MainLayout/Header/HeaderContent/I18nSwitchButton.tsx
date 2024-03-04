@@ -23,8 +23,6 @@ import { makeStyles } from "@/themes/hooks";
 import IconButton from "@/components/@extended/IconButton";
 import Transitions from "@/components/@extended/Transitions";
 import MainCard from "@/components/MainCard";
-import { useDispatch, useSelector } from "@/store";
-import { setThemeMode } from "@/store/reducers/view";
 
 // assets
 import LanguageOutlinedIcon from "@mui/icons-material/LanguageOutlined";
@@ -170,8 +168,8 @@ const I18nSwitchButton: React.FC = () => {
                 >
                   <List component="nav" className={classes.nav}>
                     {config.languages
-                      .filter((lang) => i18n.hasResourceBundle(lang, "common"))
-                      .map((lang) => (
+                      .filter((lang: string) => i18n.hasResourceBundle(lang, "common"))
+                      .map((lang: string) => (
                         <ListItem disablePadding divider key={lang}>
                           <ListItemButton
                             aria-label={lang}

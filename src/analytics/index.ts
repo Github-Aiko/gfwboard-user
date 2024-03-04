@@ -2,11 +2,11 @@ import ReactGA from "react-ga4";
 import reportWebVitals from "@/analytics/reportWebVitals";
 import config from "@/config";
 
-if (config.googleAnalytics) {
+if (config.googleAnalyticsMeasurementId) {
   ReactGA.initialize(
     [
       {
-        trackingId: config.googleAnalytics.measurementId
+        trackingId: config.googleAnalyticsMeasurementId
       }
     ],
     {

@@ -10,6 +10,7 @@ import { CustomizationProps, FontFamily, ThemeDirection } from "@/types/config";
 // initial state
 const initialState: CustomizationProps = {
   ...config,
+  themeDirection: config.themeDirection as ThemeDirection,
   onChangeContainer: () => {},
   onChangeDirection: (direction: ThemeDirection) => {},
   onChangeMiniDrawer: (miniDrawer: boolean) => {},

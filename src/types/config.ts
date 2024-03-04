@@ -3,7 +3,8 @@ export type FontFamily =
   | `'Inter', sans-serif`
   | `'Poppins', sans-serif`
   | `'Roboto', sans-serif`
-  | `'Public Sans', sans-serif`;
+  | `'Public Sans', sans-serif`
+  | string;
 
 // ==============================|| CONFIG TYPES  ||============================== //
 
