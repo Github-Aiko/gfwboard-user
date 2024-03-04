@@ -13,26 +13,6 @@ export type CustomizationActionProps = {
   payload?: CustomizationProps;
 };
 
-export type DefaultConfigProps = {
-  defaultPath: string;
-  fontFamily: FontFamily;
-  miniDrawer: boolean;
-  container: boolean;
-  themeDirection: ThemeDirection;
-  title: string;
-  title_split: string;
-  background_url: string;
-  description: string;
-  logo: string | null;
-  api: string;
-  languages: string[];
-  googleAnalytics?: {
-    measurementId: string;
-  };
-  emojiEndpoint?: string;
-  startYear?: number;
-};
-
 export type CustomizationProps = {
   defaultPath: string;
   fontFamily: FontFamily;

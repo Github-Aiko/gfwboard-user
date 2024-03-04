@@ -1,13 +1,12 @@
 import axios, { AxiosHeaders } from "axios";
 import lo from "lodash-es";
-import config from "@/config";
 
 const getBaseUrl = () => {
   if (import.meta.env.API_BASE_URL) {
     return import.meta.env.API_BASE_URL;
   }
 
-  return new URL("/api/v1/", config.api).toString();
+  return "/api/v1/";
 };
 
 const instance = axios.create({

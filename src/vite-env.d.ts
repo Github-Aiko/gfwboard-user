@@ -21,7 +21,6 @@ interface Window {
     background_url: string;
     description: string;
     logo: string;
-    api: string;
     languages: string[];
     emojiEndpoint: string;
     startYear: number;
