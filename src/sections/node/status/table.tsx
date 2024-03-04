@@ -3,7 +3,7 @@ import React, { useMemo } from "react";
 // third-party
 import { useTranslation } from "react-i18next";
 import dayjs from "dayjs";
-import lo from "lodash-es";
+import lo, { uniqBy } from "lodash-es";
 
 // material-ui
 import { Box, Chip, Stack } from "@mui/material";
@@ -60,18 +60,21 @@ const Table: React.FC<{
 
   const rows = useMemo(
     () =>
-      data
-        ?.filter((datum) => datum.show === 1)
-        .sort((a, b) => {
-          switch (true) {
-            case a.sort > b.sort:
-              return 1;
-            case a.sort < b.sort:
-              return -1;
-            default:
-              return 0;
-          }
-        }) ?? [],
+      uniqBy(
+        data
+          ?.filter((datum) => datum.show === 1)
+          .sort((a, b) => {
+            switch (true) {
+              case a.sort > b.sort:
+                return 1;
+              case a.sort < b.sort:
+                return -1;
+              default:
+                return 0;
+            }
+          }) ?? [],
+        (datum) => datum.id
+      ),
     [data]
   );
 
@@ -92,14 +95,12 @@ const Table: React.FC<{
         filterable: true
       },
       {
-        field: "last_check_at",
+        field: "is_online",
         headerName: t("node.status.table.status", { context: "header" }).toString(),
         description: t("node.status.table.status", { context: "description" }).toString(),
         width: 120,
         sortable: false,
         type: "boolean",
-        valueGetter: (params: GridValueGetterParams<string, Server>) =>
-          params.value && Math.abs(dayjs.unix(parseInt(params.value)).diff(dayjs(), "minute")) <= 5,
         renderCell: (params: GridRenderCellParams<boolean, Server>) => (
           <Box className={classes.icon}>
             {params.value ? (
