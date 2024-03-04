@@ -1,6 +1,6 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 
 // third-party
 import { Provider as ReduxProvider } from "react-redux";
@@ -59,9 +59,9 @@ ro.observe(container);
 root.render(
   <ReduxProvider store={store}>
     <ConfigProvider>
-      <BrowserRouter>
+      <HashRouter basename={"/"}>
         <App />
-      </BrowserRouter>
+      </HashRouter>
     </ConfigProvider>
   </ReduxProvider>
 );
